@@ -40,13 +40,13 @@ public class SearchTest extends BasicTest {
 			// Open URLs from the 'Data.xlsx' file
 			driver.get(mealUrls);
 			Thread.sleep(5000);
-			// Open location pop up box aand set location from the 'Data.xlsx' file
+			// Open location pop up box and set location from the 'Data.xlsx' file
 			locationPopupPage.openLocationPopupBox();
 			Thread.sleep(5000);
 			locationPopupPage.setLocation(locationFromData);
 			Thread.sleep(2000);
 			// Number of result data from the 'Data.xlsx' file
-			String numberOfTheResultsData = MealSearchResults.getRow(i).getCell(2).getRawValue();
+			String numberOfTheResultsData = formatter.formatCellValue(MealSearchResults.getRow(i).getCell(2));
 			// Verify that the number of results is the same as the number of results from
 			// the 'Data.xlsx' file
 			softAssert.assertEquals(searchResultPage.returnNumberOfTheResults(), numberOfTheResultsData,
